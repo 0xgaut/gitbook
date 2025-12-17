@@ -1,86 +1,79 @@
-# Universal Documentation
+---
+description: >-
+  Universal is a wrapped asset protocol designed to enable trading for any
+  token, on any chain. Think Circle for cryptoassets.
+---
 
-**Universal is a wrapped asset protocol designed to enable trading for any token, on any chain.**
+# Introduction to Universal
 
-Build applications that leverage 80+ cross-chain assets with deep liquidity and seamless execution. Universal brings off-chain assets onchain with 1:1 backing, verified reserves, and instant minting/redemption.
-
-## Getting Started
+## Universal Developer Documentation
 
 ### Introduction
 
-**Learn about Universal Protocol**
+#### Why Universal?
 
-Understand the fundamentals of Universal, how it works, and who's building it.
+Universal is a wrapped asset protocol designed to enable trading for any token, on any chain.
 
-[Explore Introduction →](introduction/)
+**The Universal Thesis**
 
-### Trade
+1. Limited Onchain Availability: Many assets are not available onchain.
+2. Liquidity Fragmentation: Liquidity is split across multiple L1s and L2s, making it inefficient.
+3. User Experience Complexity: Users shouldn’t have to worry about bridges, liquidity depth, or fragmented execution.
 
-**Start trading Universal assets**
+By solving these issues, Universal makes all assets accessible across all supported chains.
 
-Learn how to trade uAssets, earn referral fees, and understand the risks.
+***
 
-[Start Trading →](trade/)
+### What Problems Does Universal Solve?
 
-### Developers
+#### 1. The Cold Start Problem for Chains
 
-**Build with Universal**
+New L1s and L2s launch without assets or liquidity on day one. Users bridge to the new chain but find nothing to trade.
 
-Integrate Universal assets into your protocol with our API, SDK, and smart contracts.
+With Universal, the most popular assets in crypto are available on day one, allowing users to trade immediately and experience the full benefits of the new chain.
 
-[Developer Docs →](developers/)
+#### 2. The Cold Start Problem for Token Issuers
 
-### Resources
+Token issuers face constant demands from their community to provide liquidity on new chains. However, maintaining liquidity across multiple L1s and L2s is:
 
-**Get help and brand assets**
+* Expensive – It requires significant capital to sustain liquidity pools.
+* Inefficient – Pulling liquidity from one venue to another often weakens execution quality.
+* Fragmenting – Thin liquidity results in poor user experience.
 
-Access support, brand kits, and community resources.
+With Universal, users can purchase tokens on any chain they want, without issuers needing to maintain liquidity pools across multiple networks.
 
-[View Resources →](resources/)
+#### 3. The Liquidity and UX Problem for Users
 
-## Quick Links
+Users simply want seamless access to assets without thinking about:
 
-### Core Concepts
+* Liquidity depth
+* Cross-chain bridging
+* Setting up new wallets
+* Managing gas fees on multiple networks
 
-- [What is Universal?](introduction/what-is-universal.md)
-- [How Trading Works](trade/how-it-works.md)
-- [Protocol Overview](developers/protocol.md)
+Most high-volume crypto assets (like DOGE, XRP) are not even available on-chain for spot trading.
 
-### Integration Guides
+Universal ensures a superior UX where users can access, trade, and move assets without friction.
 
-- [Universal API](developers/api.md)
-- [SDK Reference](developers/sdk.md)
-- [Smart Contracts](developers/smart-contracts.md)
-- [Uniswap V4 Hook](developers/v4-hook.md)
+***
 
-### Protocol Architecture
+### Our Solution: The Universal Protocol
 
-- [Merchants](developers/protocol-concepts/merchants.md)
-- [Custodians](developers/protocol-concepts/custodians.md)
-- [Issuance Process](developers/protocol-concepts/issuance.md)
-- [Redemption Process](developers/protocol-concepts/redemption.md)
-- [Proof of Reserves](developers/protocol-concepts/reserves.md)
+Universal is a wrapped asset protocol utilizing the same architecture as wBTC, USDT, and USDC. However, it introduces key improvements:
 
-## Connect with Universal
+#### 1. Secure and Verifiable Custody for Underlying Assets
 
-### Community
+* All assets are [verifiably](https://www.universal.xyz/reserves) held by a qualified custodian.
+* This ensures 1:1 backing for all wrapped uAssets.
 
-- [Twitter/X](https://twitter.com/UniversalAsset_)
-- [Discord](http://discord.gg/universalassets)
+#### 2. Instant Minting and Redeeming of uAssets
 
-### Products
+* uAssets can be minted and redeemed instantly on any chain once collateral is verified.
+* Merchants, who are permissioned actors, facilitate minting and redemption.
 
-- [Buy Universal Assets](https://app.universalassets.xyz)
-- [Mint or Redeem with native assets](https://www.universal.xyz/mint-and-redeem)
-- [Proof of Reserves](https://www.universal.xyz/reserves)
+#### 3. Bringing Off-Chain Assets Onchain
 
-### Documentation
+* Universal enables non-EVM assets (like DOGE, XRP) to be wrapped and traded on any supported chain.
+* This expands the DeFi ecosystem by making previously unavailable assets accessible in onchain markets.
 
-- [Whitepaper](https://app.universalassets.xyz/docs/universal-whitepaper.pdf)
-- [Universal EVM Audit](https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf)
-- [Universal Solana Audit](https://hacken.io/audits/universal/)
-
-### Legal
-
-- [Disclaimer](https://app.universalassets.xyz/disclaimer)
-- [Terms of Service](https://app.universalassets.xyz/term-of-service)
+<br>

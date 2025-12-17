@@ -1,56 +1,48 @@
-# Table of Contents
+# Table of contents
 
-## Introduction
+## Introduction to Universal
 
-* [Universal Documentation](README.md)
-* [Introduction to Universal](introduction/README.md)
-  * [What is Universal?](introduction/what-is-universal.md)
-  * [Core Contributors](introduction/core-contributors.md)
+* [Introduction to Universal](README.md)
+* [Universal Protocol Overview](introduction-to-universal/universal-protocol-overview/README.md)
+  * [Key Roles](introduction-to-universal/universal-protocol-overview/key-roles/README.md)
+    * [Custodian](introduction-to-universal/universal-protocol-overview/key-roles/custodian.md)
+    * [Merchant](introduction-to-universal/universal-protocol-overview/key-roles/merchant.md)
+    * [User](introduction-to-universal/universal-protocol-overview/key-roles/user.md)
+  * [Issuance](introduction-to-universal/universal-protocol-overview/issuance.md)
+  * [Redemption](introduction-to-universal/universal-protocol-overview/redemption.md)
+  * [Bridging (coming soon)](introduction-to-universal/universal-protocol-overview/bridging-coming-soon.md)
+  * [Universal Token Liquidity & Acquisition](introduction-to-universal/universal-protocol-overview/universal-token-liquidity-and-acquisition.md)
+* [Introduction to uAssets](introduction-to-universal/introduction-to-uassets.md)
+* [Frequently Asked Questions](introduction-to-universal/frequently-asked-questions.md)
+* [Proof of Reserves](introduction-to-universal/proof-of-reserves.md)
 
-## Trade
+## DEVELOPERS
 
-* [Trade Universal Assets](trade/README.md)
-  * [How It Works](trade/how-it-works.md)
-  * [Placing a Trade](trade/placing-a-trade.md)
-  * [Referral Program](trade/referrals.md)
-  * [Points System](trade/points.md)
-  * [Risks & Disclaimers](trade/risks.md)
-
-## Developers
-
-* [Developers](developers/README.md)
-* [Protocol Overview](developers/protocol.md)
-* [Protocol Concepts](developers/protocol-concepts/README.md)
-  * [Merchants](developers/protocol-concepts/merchants.md)
-  * [Custodians](developers/protocol-concepts/custodians.md)
-  * [Issuance](developers/protocol-concepts/issuance.md)
-  * [Redemption](developers/protocol-concepts/redemption.md)
-  * [Proof of Reserves](developers/protocol-concepts/reserves.md)
-* [Universal API](developers/api.md)
-* [TypeScript SDK](developers/sdk.md)
-* [Uniswap V4 Hook](developers/v4-hook.md)
-* [Smart Contracts](developers/smart-contracts.md)
-* [Asset Logos](developers/asset-logos.md)
-
-## Resources
-
-* [Resources](resources/README.md)
-  * [Support & FAQ](resources/support.md)
-  * [Brand Kit](resources/brand-kit.md)
+* [Building with uAssets](developers/building-with-uassets.md)
+* [Integrate the Universal API](developers/integrate-the-universal-api.md)
+* [Integrate the Issuance & Redemption Universal API](developers/integrate-the-issuance-and-redemption-universal-api/README.md)
+  * [Authentication](developers/integrate-the-issuance-and-redemption-universal-api/authentication.md)
+  * [Burn API](developers/integrate-the-issuance-and-redemption-universal-api/burn-api.md)
+  * [Configuration API](developers/integrate-the-issuance-and-redemption-universal-api/configuration-api.md)
+  * [Mint API](developers/integrate-the-issuance-and-redemption-universal-api/mint-api.md)
+  * [Orders API](developers/integrate-the-issuance-and-redemption-universal-api/orders-api.md)
+  * [Error Handling](developers/integrate-the-issuance-and-redemption-universal-api/error-handling.md)
+  * [Examples](developers/integrate-the-issuance-and-redemption-universal-api/examples.md)
+* [Contract Addresses](developers/contract-addresses.md)
+* [Partnerships](developers/partnerships.md)
+* [uAsset Logos](developers/uasset-logos.md)
 
 ## Community
 
-* [Discord](http://discord.gg/universalassets)
 * [Twitter/X](https://twitter.com/UniversalAsset_)
+* [Discord](http://discord.gg/universalassets)
 
 ## Links
 
 * [Buy Universal Assets](https://app.universalassets.xyz)
-* [Mint or Redeem](https://www.universal.xyz/mint-and-redeem)
-* [Proof of Reserves](https://www.universal.xyz/reserves)
+* [Mint or Redeem with native assets](https://www.universal.xyz/mint-and-redeem)
 * [Whitepaper](https://app.universalassets.xyz/docs/universal-whitepaper.pdf)
 * [Disclaimer](https://app.universalassets.xyz/disclaimer)
 * [Terms of Service](https://app.universalassets.xyz/term-of-service)
 * [Universal EVM Audit](https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf)
 * [Universal Solana Audit](https://hacken.io/audits/universal/)
-
