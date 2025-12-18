@@ -36,23 +36,10 @@ Universal is a wrapped asset protocol designed to enable trading for any token, 
 
 ## Connect with us
 
-### Join us on Discord for support and community
-
-[Discord](http://discord.gg/universalassets)
-
-### Follow for updates and announcements
-
-[Twitter/X](https://twitter.com/UniversalAsset_)
-
-### Read the technical documentation
-
-[Whitepaper](https://app.universalassets.xyz/docs/universal-whitepaper.pdf)
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Join us on Discord</strong></td><td>Get support and connect with the community</td><td><a href="http://discord.gg/universalassets">http://discord.gg/universalassets</a></td></tr><tr><td><strong>Follow on Twitter/X</strong></td><td>Stay updated with announcements and news</td><td><a href="https://twitter.com/UniversalAsset_">https://twitter.com/UniversalAsset_</a></td></tr><tr><td><strong>Read the Whitepaper</strong></td><td>Deep dive into the technical documentation</td><td><a href="https://app.universalassets.xyz/docs/universal-whitepaper.pdf">https://app.universalassets.xyz/docs/universal-whitepaper.pdf</a></td></tr></tbody></table>
 
 ***
 
-## Resources
+## Additional Resources
 
-* [Universal EVM Audit](https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf)
-* [Universal Solana Audit](https://hacken.io/audits/universal/)
-* [Terms of Service](https://app.universalassets.xyz/term-of-service)
-* [Disclaimer](https://app.universalassets.xyz/disclaimer)
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Security Audits</strong></td><td>Review our smart contract audits from leading firms</td><td><a href="https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf">https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf</a></td></tr><tr><td><strong>Legal Documents</strong></td><td>Terms of Service and legal disclaimers</td><td><a href="https://app.universalassets.xyz/term-of-service">https://app.universalassets.xyz/term-of-service</a></td></tr><tr><td><strong>Support & FAQ</strong></td><td>Get help and find answers to common questions</td><td><a href="resources/support.md">support.md</a></td></tr></tbody></table>
