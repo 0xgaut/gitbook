@@ -1,86 +1,58 @@
-# Universal Documentation
+# Build • with • Universal
 
-**Universal is a wrapped asset protocol designed to enable trading for any token, on any chain.**
+**Dive into the world of wrapped assets, integrations, and developer tooling built on top of the Universal Protocol.**
 
-Build applications that leverage 80+ cross-chain assets with deep liquidity and seamless execution. Universal brings off-chain assets onchain with 1:1 backing, verified reserves, and instant minting/redemption.
+Universal is a wrapped asset protocol designed to enable trading for any token, on any chain. Build applications that leverage 80+ cross-chain assets with deep liquidity and seamless execution.
+
+***
 
 ## Getting Started
 
-### Introduction
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>What is Universal?</strong></td><td>Learn about the core concepts of the Universal Protocol, uAssets, merchants, and more.</td><td></td><td><a href="introduction/">introduction</a></td></tr><tr><td><strong>Start Trading</strong></td><td>Learn how to trade uAssets, earn referral fees, and understand the risks.</td><td></td><td><a href="trade/">trade</a></td></tr><tr><td><strong>Build with Universal</strong></td><td>Learn how to integrate with Universal by using our API, SDK, and smart contracts.</td><td></td><td><a href="developers/">developers</a></td></tr></tbody></table>
 
-**Learn about Universal Protocol**
+***
 
-Understand the fundamentals of Universal, how it works, and who's building it.
+## Integrate Universal
 
-[Explore Introduction →](introduction/)
+### For Traders
 
-### Trade
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Place a Trade</strong></td><td>Execute trades with deep liquidity and competitive pricing</td><td><a href="trade/placing-a-trade.md">placing-a-trade.md</a></td></tr><tr><td><strong>Earn Referral Fees</strong></td><td>Get rewarded for referring traders to Universal</td><td><a href="trade/referrals.md">referrals.md</a></td></tr><tr><td><strong>Understand Risks</strong></td><td>Learn about trading risks and security considerations</td><td><a href="trade/risks.md">risks.md</a></td></tr></tbody></table>
 
-**Start trading Universal assets**
+### For Developers
 
-Learn how to trade uAssets, earn referral fees, and understand the risks.
-
-[Start Trading →](trade/)
-
-### Developers
-
-**Build with Universal**
-
-Integrate Universal assets into your protocol with our API, SDK, and smart contracts.
-
-[Developer Docs →](developers/)
-
-### Resources
-
-**Get help and brand assets**
-
-Access support, brand kits, and community resources.
-
-[View Resources →](resources/)
-
-## Quick Links
-
-### Core Concepts
-
-- [What is Universal?](introduction/what-is-universal.md)
-- [How Trading Works](trade/how-it-works.md)
-- [Protocol Overview](developers/protocol.md)
-
-### Integration Guides
-
-- [Universal API](developers/api.md)
-- [SDK Reference](developers/sdk.md)
-- [Smart Contracts](developers/smart-contracts.md)
-- [Uniswap V4 Hook](developers/v4-hook.md)
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Universal API</strong></td><td>Integrate just-in-time liquidity with our RESTful API</td><td><a href="developers/api.md">api.md</a></td></tr><tr><td><strong>TypeScript SDK</strong></td><td>Use our viem-compatible SDK for rapid development</td><td><a href="developers/sdk.md">sdk.md</a></td></tr><tr><td><strong>Smart Contracts</strong></td><td>Direct contract integration for advanced use cases</td><td><a href="developers/smart-contracts.md">smart-contracts.md</a></td></tr><tr><td><strong>Uniswap V4 Hook</strong></td><td>Leverage Universal liquidity in Uniswap V4 pools</td><td><a href="developers/v4-hook.md">v4-hook.md</a></td></tr></tbody></table>
 
 ### Protocol Architecture
 
-- [Merchants](developers/protocol-concepts/merchants.md)
-- [Custodians](developers/protocol-concepts/custodians.md)
-- [Issuance Process](developers/protocol-concepts/issuance.md)
-- [Redemption Process](developers/protocol-concepts/redemption.md)
-- [Proof of Reserves](developers/protocol-concepts/reserves.md)
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Protocol Overview</strong></td><td>Understand how Universal works at a system level</td><td><a href="developers/protocol.md">protocol.md</a></td></tr><tr><td><strong>Merchants</strong></td><td>Learn about entities that provide just-in-time liquidity</td><td><a href="developers/protocol-concepts/merchants.md">merchants.md</a></td></tr><tr><td><strong>Custodians</strong></td><td>How underlying assets are securely held</td><td><a href="developers/protocol-concepts/custodians.md">custodians.md</a></td></tr><tr><td><strong>Proof of Reserves</strong></td><td>Verify 1:1 backing with zkProof attestations</td><td><a href="developers/protocol-concepts/reserves.md">reserves.md</a></td></tr></tbody></table>
 
-## Connect with Universal
+***
 
-### Community
+## Quick Links
 
-- [Twitter/X](https://twitter.com/UniversalAsset_)
-- [Discord](http://discord.gg/universalassets)
+<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Buy uAssets</strong></td><td>Trade Universal assets on the app</td><td><a href="https://app.universalassets.xyz">https://app.universalassets.xyz</a></td></tr><tr><td><strong>Mint & Redeem</strong></td><td>Direct minting with native assets</td><td><a href="https://www.universal.xyz/mint-and-redeem">https://www.universal.xyz/mint-and-redeem</a></td></tr><tr><td><strong>Proof of Reserves</strong></td><td>Verify 1:1 backing in real-time</td><td><a href="https://www.universal.xyz/reserves">https://www.universal.xyz/reserves</a></td></tr></tbody></table>
 
-### Products
+***
 
-- [Buy Universal Assets](https://app.universalassets.xyz)
-- [Mint or Redeem with native assets](https://www.universal.xyz/mint-and-redeem)
-- [Proof of Reserves](https://www.universal.xyz/reserves)
+## Connect with us
 
-### Documentation
+### Join us on Discord for support and community
 
-- [Whitepaper](https://app.universalassets.xyz/docs/universal-whitepaper.pdf)
-- [Universal EVM Audit](https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf)
-- [Universal Solana Audit](https://hacken.io/audits/universal/)
+[Discord](http://discord.gg/universalassets)
 
-### Legal
+### Follow for updates and announcements
 
-- [Disclaimer](https://app.universalassets.xyz/disclaimer)
-- [Terms of Service](https://app.universalassets.xyz/term-of-service)
+[Twitter/X](https://twitter.com/UniversalAsset_)
+
+### Read the technical documentation
+
+[Whitepaper](https://app.universalassets.xyz/docs/universal-whitepaper.pdf)
+
+***
+
+## Resources
+
+* [Universal EVM Audit](https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf)
+* [Universal Solana Audit](https://hacken.io/audits/universal/)
+* [Terms of Service](https://app.universalassets.xyz/term-of-service)
+* [Disclaimer](https://app.universalassets.xyz/disclaimer)
