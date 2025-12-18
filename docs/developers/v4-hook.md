@@ -1,228 +1,324 @@
 # Uniswap V4 Hook
 
-Integrate Universal's just-in-time liquidity directly into Uniswap V4 pools using hooks.
-
 ## Overview
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. The Universal V4 Hook enables Uniswap V4 pools to access Universal's merchant network for deep liquidity and competitive pricing.
+Universal is a wrapped asset protocol designed to enable trading for any token, on any chain. This document describes Universal's Just-In-Time (JIT) liquidity solution built on Uniswap V4.
 
-### Benefits
+## Background: Traditional RFQ System
 
-Lorem ipsum dolor sit amet:
+The existing Universal API system operates using a Request for Quote (RFQ) model:
 
-- **Deep Liquidity**: Access off-chain orderbook depth
-- **Capital Efficiency**: No need for passive LP positions
-- **Better Pricing**: Competitive execution through merchant network
-- **Seamless UX**: Users trade as normal, hook handles routing
+1. **User Request**: A user requests a quote for swapping between a wrapped asset and USDC
+2. **Merchant Quote**: A merchant calculates the cost to buy the underlying asset and returns a quote
+3. **User Signature**: If acceptable, the user signs the quote
+4. **Merchant Execution**: The merchant:
+    - Purchases the underlying asset
+    - Sends it to custody
+    - Waits for attestation service validation
+5. **Settlement**: Once both user signature and attestation are received, the merchant mints the wrapped asset and settles with the user
 
-## Architecture
+**Limitations**: This process is asynchronous, requires multiple steps, and introduces latency between quote and execution.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+## New Solution: JIT Oracle + Uniswap V4 Hook
 
-### Hook Lifecycle
+The new system eliminates the RFQ flow by providing continuous, oracle-based liquidity through Uniswap V4.
 
-1. **Before Swap**: Lorem ipsum dolor sit amet
-2. **Price Discovery**: Lorem ipsum dolor sit amet
-3. **Order Execution**: Lorem ipsum dolor sit amet
-4. **After Swap**: Lorem ipsum dolor sit amet
+### Architecture Components
 
-## Implementation
+### 1. UniversalJITOracle (`src/v4-hook/UniversalJITOracle.sol`)
 
-### Hook Installation
+A specialized oracle that provides real-time liquidity bands for each trading direction.
 
-Lorem ipsum dolor sit amet:
+**Key Features:**
+
+- **Dual Liquidity Bands**: Maintains separate bands for each swap direction
+    - Lower band: For selling USDC → buying uAsset (zeroForOne swaps)
+    - Upper band: For selling uAsset → buying USDC (oneForZero swaps)
+- **Oracle Updates**: Authorized reporters continuously update price and liquidity data
+    - `jitLowerTick` / `jitUpperTick`: Start prices in ticks for the price curve for each direction
+    - `jitLowerRange` / `jitUpperRange`: Tick ranges defining band width
+    - `uAssetLiquidity`: Maximum uAsset liquidity available
+    - `usdcLiquidity`: Maximum USDC liquidity available
+    - `timestamp`: Update timestamp, saved automatically and used to check for stale prices
+- **Safety Mechanisms**:
+    - Price staleness checks (`STALE_THRESHOLD`: 30 seconds)
+    - Update frequency limits (`MIN_FREQUENCY`: 5 seconds)
+    - Maximum price delta protection (`maxDeltaTick`)
+    - Role-based access control for oracle reporters
+
+**Data Structure:**
 
 ```solidity
-// Conceptual example - not production code
-contract UniversalV4Hook is BaseHook {
-    IUniversalRelayer public relayer;
-    
-    constructor(
-        IPoolManager _poolManager,
-        IUniversalRelayer _relayer
-    ) BaseHook(_poolManager) {
-        relayer = _relayer;
-    }
-    
-    function beforeSwap(
-        address sender,
-        PoolKey calldata key,
-        IPoolManager.SwapParams calldata params,
-        bytes calldata hookData
-    ) external override returns (bytes4) {
-        // Lorem ipsum dolor sit amet
-        return BaseHook.beforeSwap.selector;
-    }
-    
-    function afterSwap(
-        address sender,
-        PoolKey calldata key,
-        IPoolManager.SwapParams calldata params,
-        BalanceDelta delta,
-        bytes calldata hookData
-    ) external override returns (bytes4) {
-        // Lorem ipsum dolor sit amet
-        return BaseHook.afterSwap.selector;
-    }
+struct OracleUpdate {
+    PoolId poolId;           // Uniswap V4 pool identifier
+    int24 jitLowerTick;      // Center tick for lower band
+    int24 jitUpperTick;      // Center tick for upper band
+    uint16 jitLowerRange;    // Width of lower band
+    uint16 jitUpperRange;    // Width of upper band
+    uint72 uAssetLiquidity;  // Max uAsset liquidity (scaled by 1e12)
+    uint72 usdcLiquidity;    // Max USDC liquidity
 }
 ```
 
-## Integration Guide
+### 2. UniversalJITHook (`src/v4-hook/UniversalJitHook.sol`)
 
-### 1. Deploy Hook
+A Uniswap V4 hook that intercepts swaps and executes them against the oracle-defined liquidity bands.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+**Key Features:**
 
-### 2. Initialize Pool
+- **beforeSwap Hook**: Intercepts all swaps before they hit the pool
+- **Virtual Price Tracking**: Maintains virtual price state for each direction in between oracle updates to prevent price manipulation
+- **Dynamic Settlement**:
+    - Uses existing pool claims when available
+    - Mints new uAssets on-demand via MerchantController
+    - Settles USDC from merchant balance
+- **Blacklist Enforcement**: Checks user blacklist status via wrapped asset contracts
 
-Lorem ipsum dolor sit amet:
+**Hook Permissions:**
 
-```typescript
-// Lorem ipsum
-const poolKey = {
-  currency0: uBTC,
-  currency1: USDC,
-  fee: 3000,
-  tickSpacing: 60,
-  hooks: universalHook,
-};
+```solidity
+beforeInitialize: true       // Validate pool setup
+beforeSwap: true            // Intercept swaps
+beforeSwapReturnDelta: true // Return custom swap results
+beforeAddLiquidity: true    // Block direct liquidity provision
+beforeRemoveLiquidity: true // Block direct liquidity removal
+beforeDonate: true          // Block donations
 ```
 
-### 3. Configure Parameters
+### Trading Flow
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
+### Zero-for-One Swap (Selling Token0 → Buying Token1)
 
-## Use Cases
+**Example: USDC → uAsset**
 
-### Hybrid AMM/Orderbook Model
+1. **Oracle Query**: Hook fetches latest oracle report for the pool
+2. **Band Calculation**: Computes lower band range
+    - `tickLower = jitLowerTick - jitLowerRange`
+    - `tickUpper = jitLowerTick`
+    - `sqrtPriceLower = TickMath.getSqrtPriceAtTick(tickLower)`
+    - `sqrtPriceUpper = virtualSqrtPriceX96` (tracked state)
+3. **Liquidity Calculation**: Derives liquidity from oracle
+    - If buying uAsset: `liquidity = getLiquidityForAmount1(sqrtPriceLower, sqrtPriceUpper, uAssetLiquidity)`
+    - If buying USDC: `liquidity = getLiquidityForAmount1(sqrtPriceLower, sqrtPriceUpper, usdcLiquidity)`
+4. **Quote Calculation**: Uses constant product formula within virtual price range
+    - Exact Input: Calculate output given specified input
+    - Exact Output: Calculate input needed for specified output
+    - Respects `sqrtPriceLimitX96` from swap parameters
+5. **Virtual Price Update**: Updates virtual price for the direction
+    - `lowerVirtualPrice[poolId].updatePrice(sqrtPriceAfter)`
+6. **Settlement**:
+    - **Take**: Collect input tokens from swapper via PoolManager
+    - **Settle**: Provide output tokens to swapper
+        - Use existing pool claims first
+        - Mint new uAssets if needed (via `merchantController.mintFromHook`)
+        - Use merchant USDC balance for USDC swaps
+7. **Return Delta**: Hook returns `BeforeSwapDelta` to PoolManager
+    - Pool execution is bypassed (no-op)
+    - All liquidity provided by hook
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit:
+### One-for-Zero Swap (Selling Token1 → Buying Token0)
 
-- Use AMM for small trades
-- Route large trades through Universal merchants
-- Optimize execution based on size
+**Example: uAsset → USDC**
 
-### Cross-Chain Liquidity
+Similar flow but uses upper band:
 
-Lorem ipsum dolor sit amet:
+- `tickLower = jitUpperTick`
+- `tickUpper = jitUpperTick + jitUpperRange`
+- Uses `upperVirtualPrice[poolId]` for state tracking
 
-- Enable trading of uAssets natively on Uniswap
-- Access liquidity from multiple chains
-- No bridge required
+### Security Features
 
-### Dynamic Fee Optimization
+### Pool Initialization Checks
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+When a new pool is initialized with the hook:
+
+1. **Currency Validation**: One currency must be PAIR_TOKEN (USDC), the other must be whitelisted in MerchantController
+2. **Oracle Availability**: Oracle must have a valid, non-stale price report for the pool
+
+### Per-Swap Checks
+
+Before each swap:
+
+1. **Asset Whitelist**: Wrapped asset must be whitelisted in MerchantController
+2. **User Blacklist**: Transaction originator must not be blacklisted on the wrapped asset contract
+3. **Oracle Freshness**: Oracle report must be less than 30 seconds old
+4. **Liquidity Availability**:
+    - uAsset minting must be available via MerchantController
+    - Merchant must have sufficient USDC balance for USDC settlements
+
+### Price Manipulation Protection
+
+1. **Virtual Price State**: Each direction maintains a virtual price that only moves within oracle-defined bands
+2. **Oracle Update Limits**:
+    - Minimum 5 seconds between updates
+    - Maximum tick delta (`maxDeltaTick`) enforced between consecutive updates
+3. **Staleness Checks**: Prices older than 30 seconds are rejected
+
+### Post-Swap Cleanup
+
+### Sweep Mechanism (`sweepToMerchant`)
+
+After swaps, residual claims may remain in the hook contract. The sweep function:
+
+1. Burns uAsset claims (takes tokens and burns via MerchantController)
+2. Transfers USDC claims to merchant
+3. Can be called by anyone for any valid pool
+4. Ensures the hook doesn't accumulate residual balances
+
+### Integration Points
+
+### MerchantController Interface
+
+```solidity
+interface IMinimalMerchantController {
+    function isAssetWhitelisted(address asset) external view returns (bool);
+    function mintFromHook(address asset, address to, uint256 amount) external;
+    function burnFromHook(address asset, address from, uint256 amount) external;
+}
+```
+
+### Oracle Interface
+
+```solidity
+interface IMinimalJITOracle {
+    struct OracleReport {
+        int24 jitLowerTick;
+        int24 jitUpperTick;
+        uint24 jitLowerRange;
+        uint24 jitUpperRange;
+        uint256 uAssetLiquidity;
+        uint256 usdcLiquidity;
+        uint48 timestamp;
+    }
+
+    function safeGetPrice(PoolId poolId) external view returns (OracleReport memory);
+}
+```
+
+### Key Advantages
+
+1. **Instant Execution**: No waiting for quotes or attestations
+2. **Continuous Liquidity**: Always-on liquidity within oracle-defined bands
+3. **Price Control**: Merchant controls exact pricing through oracle updates
+4. **Capital Efficiency**: On-demand minting eliminates need for pre-minted inventory
+5. **Gas Efficiency**: Single transaction for complete swap
+6. **MEV Protection**: Virtual price state prevents sandwich attacks within band
+
+### Technical Considerations
+
+### Liquidity Scaling
+
+The oracle stores `uAssetLiquidity` as `uint72` scaled down by `UASSET_SCALE` (1e12) to fit within storage constraints:
+
+```solidity
+// Oracle storage (scaled down)
+uint72 uAssetLiquidity;
+
+// Hook reads and scales up
+function getPrice(PoolId poolId) public view returns (OracleReport memory) {
+    return OracleReport({
+        uAssetLiquidity: uint256(oracleReports[poolId].uAssetLiquidity) * UASSET_SCALE,
+        // ... other fields
+    });
+}
+```
+
+### Virtual Price Mechanics
+
+Virtual prices track the effective execution price within bands:
+
+```solidity
+struct VirtualPrice {
+    uint160 virtualSqrtPriceX96;
+    uint32 timestamp;
+}
+```
+
+- Updated only when oracle timestamp is newer
+- Moves with each swap within the band
+- Resets to oracle price when oracle updates
+
+### Claims-Based Settlement
+
+The hook uses Uniswap V4's claims system for gas efficiency:
+
+1. **Taking Tokens**: Hook receives claims (IOU from PoolManager)
+2. **Settling Tokens**: Hook burns claims and provides tokens
+3. **Claim Cleanup**: Unused claims are burned and underlying tokens handled appropriately
+
+### Example Scenario
+
+**User wants to buy 1000 uBTC with USDC:**
+
+1. Oracle reports:
+    - `jitLowerTick`: -100
+    - `jitLowerRange`: 50
+    - `uAssetLiquidity`: 10,000,000,000,000,000 (10 BTC worth, scaled)
+    - `usdcLiquidity`: 800,000,000,000 (800k USDC)
+2. Hook calculates:
+    - Band range: ticks -150 to -100
+    - Liquidity: Based on 10 BTC available
+    - Virtual price: Current state within band
+3. User swaps:
+    - Hook computes: 1000 uBTC requires X USDC
+    - Takes X USDC from user
+    - Checks claims, mints remaining 1000 uBTC via MerchantController
+    - Settles 1000 uBTC to user
+4. Virtual price updates to reflect execution
+5. Later, someone calls `sweepToMerchant()` to clean up any residual claims
 
 ## Configuration
 
-Lorem ipsum dolor sit amet:
+### Oracle Setup
 
-```typescript
-interface HookConfig {
-  // Minimum trade size to route through Universal
-  minTradeSize: bigint;
-  
-  // Maximum slippage tolerance
-  maxSlippageBips: number;
-  
-  // Merchant addresses to use
-  authorizedMerchants: address[];
-  
-  // Lorem ipsum
-  fallbackToAMM: boolean;
-}
+```solidity
+// Deploy oracle
+UniversalJITOracle oracle = new UniversalJITOracle(maxDeltaTick);
+
+// Grant reporter role
+oracle.grantRole(ORACLE_REPORTER_ROLE, reporterAddress);
+
+// Reporter updates prices
+OracleUpdate memory update = OracleUpdate({
+    poolId: poolId,
+    jitLowerTick: -100,
+    jitUpperTick: 100,
+    jitLowerRange: 50,
+    jitUpperRange: 50,
+    uAssetLiquidity: 10_000_000_000_000_000,
+    usdcLiquidity: 1_000_000_000_000
+});
+oracle.setPrice(update);
 ```
 
-## Security Considerations
+### Hook Setup
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit:
+```solidity
+// Deploy hook
+UniversalJITHook hook = new UniversalJITHook(
+    poolManager,
+    oracle,
+    merchantController,
+    pairToken,  // USDC
+    owner,
+    merchant
+);
 
-- **Hook authorization**: Lorem ipsum
-- **Merchant verification**: Lorem ipsum
-- **Price oracle checks**: Lorem ipsum
-- **Reentrancy protection**: Lorem ipsum
-
-## Performance
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-### Gas Optimization
-
-Lorem ipsum dolor sit amet:
-
-- Batch operations when possible
-- Cache frequently accessed data
-- Optimize storage layout
-
-## Examples
-
-### Basic Swap with Hook
-
-```typescript
-// Lorem ipsum
-async function swapWithUniversalHook() {
-  // Lorem ipsum dolor sit amet
-  const swapParams = {
-    zeroForOne: true,
-    amountSpecified: parseUnits("100", 6),
-    sqrtPriceLimitX96: 0,
-  };
-  
-  // Lorem ipsum
-  await poolManager.swap(poolKey, swapParams, hookData);
-}
+// Initialize pool with hook
+PoolKey memory key = PoolKey({
+    currency0: usdc,
+    currency1: uAsset,
+    fee: 0,
+    tickSpacing: 1,
+    hooks: IHooks(address(hook))
+});
+poolManager.initialize(key, initialSqrtPrice, "");
 ```
 
-### Price Comparison
+## Future Enhancements
 
-```typescript
-// Lorem ipsum
-async function compareExecution() {
-  // Get AMM price
-  const ammPrice = await getAMMQuote();
-  
-  // Get Universal price
-  const universalPrice = await getUniversalQuote();
-  
-  // Use better execution
-  if (universalPrice.amountOut > ammPrice.amountOut) {
-    // Route through Universal
-  } else {
-    // Use AMM
-  }
-}
-```
+Potential improvements to consider:
 
-## Deployment
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit:
-
-### Supported Chains
-
-- Base
-- Arbitrum
-- Polygon
-- World
-
-### Contract Addresses
-
-Lorem ipsum dolor sit amet. See [Smart Contracts](smart-contracts.md) for addresses.
-
-## Resources
-
-- [Uniswap V4 Documentation](https://docs.uniswap.org/)
-- [Hook Development Guide](https://docs.uniswap.org/)
-- [Universal API](api.md)
-
-## Support
-
-- [Discord](http://discord.gg/universalassets)
-- [Contact Partnerships](../introduction/core-contributors.md)
-- Email: dev@universal.xyz
-
-## Coming Soon
-
-This integration is under active development. Contact the Universal team for early access and partnership opportunities.
-
-📩 **Email:** austin@universal.xyz
+1. **Native swap logic execution:** use Uniswap's native swap mechanic by adding/removing liquidity JIT. As this comes with it's unique set of challenges, like respecting tick spacing while ensuring liquidity is single sided, sqrtPrice jumping when there's no third party liquidity and oracle liquidity is depleted or price is stale, etc.
+2. **Multi-Merchant Support**: Allow multiple liquidity providers
+3. **Fee Mechanisms**: Introduce configurable fees for the protocol
