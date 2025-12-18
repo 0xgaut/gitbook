@@ -12,7 +12,7 @@ Universal is a wrapped asset protocol designed to enable trading for any token, 
 
 ***
 
-## Integrate Universal
+## Universal is built for traders and developers
 
 ### For Traders
 
