@@ -30,7 +30,7 @@
 * [Universal API](developers/api.md)
 * [TypeScript SDK](developers/sdk.md)
 * [Uniswap V4 Hook](developers/v4-hook.md)
-* [Smart Contracts](developers/smart-contracts.md)
+* [Contract Addresses](developers/smart-contracts.md)
 * [Asset Logos](developers/asset-logos.md)
 
 ## Resources

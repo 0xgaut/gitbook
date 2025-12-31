@@ -34,7 +34,7 @@ Integrate Universal into your application.
 | [Universal API](developers/api.md) | Wallets and apps needing guaranteed quotes via RFQ |
 | [TypeScript SDK](developers/sdk.md) | Rapid development with viem-compatible tooling |
 | [Uniswap V4 Hook](developers/v4-hook.md) | Atomic swaps and DeFi composability |
-| [Smart Contracts](developers/smart-contracts.md) | Direct contract integration |
+| DEX Pools | Route through existing liquidity where available |
 
 ### Protocol Concepts
 

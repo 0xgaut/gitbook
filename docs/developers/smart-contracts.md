@@ -1,14 +1,10 @@
-# Smart Contracts
+# Contract Addresses
 
-Official uAsset token addresses and contract information for integrating directly with Universal Protocol.
+Official uAsset token addresses for all supported chains.
 
-## Contract Addresses
+## EVM Chains
 
-Universal uses deterministic deployment across EVM chains, meaning the same token has the same address on Base, Polygon, Arbitrum, World, and Katana.
-
-### EVM Chains
-
-The following addresses work across **Base**, **Polygon**, **Arbitrum**, **World**, and **Katana**:
+Universal uses deterministic deployment across EVM chains. The same token has the same address on **Base**, **Polygon**, **Arbitrum**, **World**, and **Katana**.
 
 | Asset | Contract Address |
 |-------|-----------------|
@@ -21,7 +17,7 @@ The following addresses work across **Base**, **Polygon**, **Arbitrum**, **World
 | LTC | `0x3EB097375fc2FC361e4a472f5E7067238c547c52` |
 | NEAR | `0x5ed25E305E08F58AFD7995EaC72563E6BE65A617` |
 | SOL | `0x9B8Df6E244526ab5F6e6400d331DB28C8fdDdb55` |
-| XRP | `0x2615a94df961278DcbC41Fb0a54fEc5f10a693aE` |
+| XRP | `0x2615a94df961278DcbC41Fb0a54fEC5f10a693aE` |
 | ETH | `0x1cff25B095cf6595afAbe35Dd7e5348666e57C11` |
 | AVAX | `0xd6a34b430C05ac78c24985f8abEE2616BC1788Cb` |
 | SHIB | `0x239b9C1F24F3423062B0d364796e07Ee905E9FcE` |
@@ -109,7 +105,9 @@ The following addresses work across **Base**, **Polygon**, **Arbitrum**, **World
 | PAXG | `0xDCC74175fB91F84326a95922aD4D95D1a20CD559` |
 | MON | `0x8c655CA4FE20C089d7D6823afD17ED6A377296E3` |
 
-### Solana (SVM)
+---
+
+## Solana
 
 | Asset | Token Address |
 |-------|--------------|
@@ -142,200 +140,54 @@ The following addresses work across **Base**, **Polygon**, **Arbitrum**, **World
 | ICP | `6ccT7LjbE37hSED1XZj7GZiFuT7HzLYxXTtRMhQyeuUL` |
 | AAVE | `7W5KgF1iazbpNUX6v2jzm41xQAoY8CXduk2NgaruaPhU` |
 
-... (additional Solana addresses - see full list in contract-addresses.md)
+---
 
-## Integration Guide
+## Key Addresses
 
-### Reading Contract Data
+### Permit2 (EVM)
 
-#### Get Total Supply
+Universal uses Uniswap's Permit2 for token approvals:
 
-```solidity
-// Solidity
-ERC20 token = ERC20(uBTCAddress);
-uint256 supply = token.totalSupply();
-```
-
-```typescript
-// TypeScript with viem
-import { createPublicClient, http } from 'viem';
-import { base } from 'viem/chains';
-
-const client = createPublicClient({
-  chain: base,
-  transport: http(),
-});
-
-const supply = await client.readContract({
-  address: '0xF1143f3A8D76f1Ca740d29D5671d365F66C44eD1', // uBTC
-  abi: erc20ABI,
-  functionName: 'totalSupply',
-});
-```
-
-#### Get User Balance
-
-```typescript
-const balance = await client.readContract({
-  address: '0xF1143f3A8D76f1Ca740d29D5671d365F66C44eD1', // uBTC
-  abi: erc20ABI,
-  functionName: 'balanceOf',
-  args: [userAddress],
-});
-```
-
-### Token Approvals
-
-Users must approve contracts to spend uAssets:
-
-```typescript
-// Approve Permit2 for trading
-await walletClient.writeContract({
-  address: uBTCAddress,
-  abi: erc20ABI,
-  functionName: 'approve',
-  args: [
-    '0x000000000022D473030F116dDEE9F6B43aC78BA3', // Permit2
-    maxUint256,
-  ],
-});
-```
-
-## Key Contracts
-
-### Permit2
-
-Universal uses Uniswap's Permit2 for token approvals on EVM chains:
-
-**Address**: `0x000000000022D473030F116dDEE9F6B43aC78BA3`
-
-[Learn more about Permit2](https://docs.uniswap.org/contracts/permit2/overview)
+`0x000000000022D473030F116dDEE9F6B43aC78BA3`
 
 ### Universal Solana Program
 
-**Program ID**: `3UcHkqbtMGtRZmWNGGfC6wwi9f7uGBacTBbuRgrGyoLG`
+`3UcHkqbtMGtRZmWNGGfC6wwi9f7uGBacTBbuRgrGyoLG`
 
-## ABI Reference
+---
 
-### Standard ERC-20 Functions
+## Token Standard
 
-All uAssets implement the standard ERC-20 interface:
+All uAssets are standard tokens:
 
-```typescript
-const erc20ABI = [
-  {
-    name: 'totalSupply',
-    type: 'function',
-    stateMutability: 'view',
-    inputs: [],
-    outputs: [{ type: 'uint256' }],
-  },
-  {
-    name: 'balanceOf',
-    type: 'function',
-    stateMutability: 'view',
-    inputs: [{ name: 'account', type: 'address' }],
-    outputs: [{ type: 'uint256' }],
-  },
-  {
-    name: 'transfer',
-    type: 'function',
-    stateMutability: 'nonpayable',
-    inputs: [
-      { name: 'to', type: 'address' },
-      { name: 'amount', type: 'uint256' },
-    ],
-    outputs: [{ type: 'bool' }],
-  },
-  {
-    name: 'approve',
-    type: 'function',
-    stateMutability: 'nonpayable',
-    inputs: [
-      { name: 'spender', type: 'address' },
-      { name: 'amount', type: 'uint256' },
-    ],
-    outputs: [{ type: 'bool' }],
-  },
-  {
-    name: 'transferFrom',
-    type: 'function',
-    stateMutability: 'nonpayable',
-    inputs: [
-      { name: 'from', type: 'address' },
-      { name: 'to', type: 'address' },
-      { name: 'amount', type: 'uint256' },
-    ],
-    outputs: [{ type: 'bool' }],
-  },
-  {
-    name: 'allowance',
-    type: 'function',
-    stateMutability: 'view',
-    inputs: [
-      { name: 'owner', type: 'address' },
-      { name: 'spender', type: 'address' },
-    ],
-    outputs: [{ type: 'uint256' }],
-  },
-] as const;
-```
+- **EVM**: ERC-20 compatible
+- **Solana**: SPL Token
 
-## Token Decimals
-
-All uAssets follow these decimal conventions:
-
-- **Most tokens**: 18 decimals
-- **BTC-based**: 8 decimals (uBTC)
-- **USDC-based**: 6 decimals (when used as pair token)
-
-Always check decimals before calculations:
-
-```typescript
-const decimals = await client.readContract({
-  address: tokenAddress,
-  abi: erc20ABI,
-  functionName: 'decimals',
-});
-```
-
-## Security
-
-### Audits
-
-Universal smart contracts have been audited by leading security firms:
-
-- [EVM Contracts Audit](https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf)
-- [Solana Contracts Audit](https://hacken.io/audits/universal/)
-
-### Best Practices
-
-- Always verify contract addresses before integration
-- Use official addresses from this documentation only
-- Implement proper error handling for contract calls
-- Test thoroughly on testnets before mainnet deployment
+---
 
 ## Block Explorers
 
-### EVM Chains
+Verify addresses on:
 
 - **Base**: [basescan.org](https://basescan.org/)
 - **Arbitrum**: [arbiscan.io](https://arbiscan.io/)
 - **Polygon**: [polygonscan.com](https://polygonscan.com/)
+- **Solana**: [solscan.io](https://solscan.io/)
 
-### Solana
+---
 
-- **Solana**: [solscan.io](https://solscan.io/) or [explorer.solana.com](https://explorer.solana.com/)
+## Security
+
+Always verify contract addresses before integration. Use only official addresses from this documentation.
+
+**Audits:**
+- [EVM Contracts Audit](https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf)
+- [Solana Contracts Audit](https://hacken.io/audits/universal/)
+
+---
 
 ## Resources
 
-- [API Documentation](api.md)
-- [SDK Reference](sdk.md)
 - [Asset Logos](asset-logos.md)
-- [Protocol Overview](protocol.md)
-
-## Support
-
-- [Discord](http://discord.gg/universalassets)
-- [Contact Team](../introduction/core-contributors.md)
-- Email: dev@universal.xyz
+- [API Documentation](api.md)
+- [SDK Documentation](sdk.md)
