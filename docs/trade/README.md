@@ -75,4 +75,4 @@ All trades settle onchain. uAssets are composable ERC-20/SPL tokens you can use 
 
 - Visit [Support](../resources/support.md) for FAQs and troubleshooting
 - Join our [Discord](http://discord.gg/universalassets) for community support
-- Follow [@UniversalAsset_](https://twitter.com/UniversalAsset_) for updates
+- Follow [@universaldotxyz](https://twitter.com/universaldotxyz) for updates

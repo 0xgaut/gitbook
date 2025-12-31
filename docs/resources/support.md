@@ -242,6 +242,6 @@ Please include:
 Join the Universal community:
 
 - **Discord**: [discord.gg/universalassets](http://discord.gg/universalassets)
-- **Twitter/X**: [@UniversalAsset_](https://twitter.com/UniversalAsset_)
+- **Twitter/X**: [@universaldotxyz](https://twitter.com/universaldotxyz)
 - **Website**: [universal.xyz](https://www.universal.xyz)
 

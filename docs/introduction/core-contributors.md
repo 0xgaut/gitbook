@@ -55,7 +55,7 @@ For API access with higher rate limits and custom integration support:
 Join the Universal community to stay updated on protocol developments, integration opportunities, and ecosystem growth.
 
 - [Discord](http://discord.gg/universalassets) - Developer support and community discussions
-- [Twitter/X](https://twitter.com/UniversalAsset_) - Protocol updates and announcements
+- [Twitter/X](https://twitter.com/universaldotxyz) - Protocol updates and announcements
 
 ## Developer Resources
 

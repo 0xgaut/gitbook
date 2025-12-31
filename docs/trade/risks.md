@@ -83,7 +83,7 @@ Only use official Universal channels:
 
 - [app.universal.xyz](https://app.universal.xyz)
 - [universal.xyz](https://www.universal.xyz)
-- [@UniversalAsset_](https://twitter.com/UniversalAsset_) on Twitter
+- [@universaldotxyz](https://twitter.com/universaldotxyz) on Twitter
 - [discord.gg/universalassets](http://discord.gg/universalassets)
 
 ## No Investment Advice

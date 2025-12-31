@@ -62,5 +62,5 @@ Integrate Universal into your application.
 ## Community
 
 - [Discord](http://discord.gg/universalassets) — Support and community discussion
-- [Twitter/X](https://twitter.com/UniversalAsset_) — Announcements and updates
+- [Twitter/X](https://twitter.com/universaldotxyz) — Announcements and updates
 - [Support & FAQ](resources/support.md) — Common questions answered

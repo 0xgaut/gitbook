@@ -18,7 +18,7 @@ Access support, brand assets, and community resources for Universal Protocol.
 Join the Universal community to stay updated on protocol developments and get support:
 
 - **[Discord](http://discord.gg/universalassets)** - Developer support and community discussions
-- **[Twitter/X](https://twitter.com/UniversalAsset_)** - Protocol updates and announcements
+- **[Twitter/X](https://twitter.com/universaldotxyz)** - Protocol updates and announcements
 
 ## Official Links
 
@@ -82,6 +82,6 @@ Join the Universal community to stay updated on protocol developments and get su
 
 Follow Universal for the latest updates:
 
-- **Twitter/X**: [@UniversalAsset_](https://twitter.com/UniversalAsset_)
+- **Twitter/X**: [@universaldotxyz](https://twitter.com/universaldotxyz)
 - **Discord**: [discord.gg/universalassets](http://discord.gg/universalassets)
 - **Website**: [universal.xyz](https://www.universal.xyz)

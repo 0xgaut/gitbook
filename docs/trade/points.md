@@ -29,5 +29,5 @@
 **Stay in the loop:**
 
 - [Join Discord](http://discord.gg/universalassets) for announcements
-- [Follow @UniversalAsset_](https://twitter.com/UniversalAsset_) on X
+- [Follow @universaldotxyz](https://twitter.com/universaldotxyz) on X
 - [Start trading](placing-a-trade.md) in the meantime

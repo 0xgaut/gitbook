@@ -42,7 +42,7 @@
 ## Community
 
 * [Discord](http://discord.gg/universalassets)
-* [Twitter/X](https://twitter.com/UniversalAsset_)
+* [Twitter/X](https://twitter.com/universaldotxyz)
 
 ## Links
 
