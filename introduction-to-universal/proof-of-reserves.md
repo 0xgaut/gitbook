@@ -41,7 +41,7 @@ The Universal Protocol utilizes a **zkProof-powered verification system** that e
 
 * Users can independently verify the proof by querying Universal's zkProof verification system.
 * The verification process allows users to:
-  * **Confirm that our reported reserves match on-chain balances.**
+  * **Confirm that our reported reserves match onchain balances.**
   * **Ensure that Coinbase Custody holds the underlying collateral for uAssets.**
   * **Authenticate that no sensitive data (e.g., API keys) has been exposed.**
 

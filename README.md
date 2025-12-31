@@ -51,7 +51,7 @@ Users simply want seamless access to assets without thinking about:
 * Setting up new wallets
 * Managing gas fees on multiple networks
 
-Most high-volume crypto assets (like DOGE, XRP) are not even available on-chain for spot trading.
+Most high-volume crypto assets (like DOGE, XRP) are not even available onchain for spot trading.
 
 Universal ensures a superior UX where users can access, trade, and move assets without friction.
 
@@ -71,7 +71,7 @@ Universal is a wrapped asset protocol utilizing the same architecture as wBTC, U
 * uAssets can be minted and redeemed instantly on any chain once collateral is verified.
 * Merchants, who are permissioned actors, facilitate minting and redemption.
 
-#### 3. Bringing Off-Chain Assets Onchain
+#### 3. Bringing Offchain Assets Onchain
 
 * Universal enables non-EVM assets (like DOGE, XRP) to be wrapped and traded on any supported chain.
 * This expands the DeFi ecosystem by making previously unavailable assets accessible in onchain markets.

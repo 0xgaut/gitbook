@@ -14,7 +14,7 @@ To redeem Universal tokens, the **Merchant** must call the **`burn`** function i
 #### **Redemption Process:**
 
 1. When the **`burn`** function is executed:
-   * The specified token amount is **deducted** from the Merchant’s on-chain Universal token balance.
+   * The specified token amount is **deducted** from the Merchant’s onchain Universal token balance.
    * The **total supply** of Universal tokens is **reduced accordingly**.
 2. Upon successful burning:
    * The Merchant **exchanges the burned Universal tokens** for an equivalent amount of the **underlying asset**.
