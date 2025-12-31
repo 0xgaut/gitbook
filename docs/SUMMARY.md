@@ -46,12 +46,12 @@
 
 ## Links
 
-* [Buy Universal Assets](https://app.universalassets.xyz)
+* [Buy Universal Assets](https://app.universal.xyz)
 * [Mint or Redeem](https://www.universal.xyz/mint-and-redeem)
 * [Proof of Reserves](https://www.universal.xyz/reserves)
-* [Whitepaper](https://app.universalassets.xyz/docs/universal-whitepaper.pdf)
-* [Disclaimer](https://app.universalassets.xyz/disclaimer)
-* [Terms of Service](https://app.universalassets.xyz/term-of-service)
+* [Whitepaper](https://app.universal.xyz/docs/universal-whitepaper.pdf)
+* [Disclaimer](https://app.universal.xyz/disclaimer)
+* [Terms of Service](https://app.universal.xyz/term-of-service)
 * [Universal EVM Audit](https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf)
 * [Universal Solana Audit](https://hacken.io/audits/universal/)
 

@@ -31,7 +31,7 @@ Universal enables seamless trading of wrapped assets (uAssets) like uBTC, uSOL, 
 
 ## Start Trading
 
-Visit the [Universal App](https://app.universalassets.xyz) to start trading uAssets today.
+Visit the [Universal App](https://app.universal.xyz) to start trading uAssets today.
 
 ### Supported Assets
 

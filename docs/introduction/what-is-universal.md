@@ -123,7 +123,7 @@ The protocol will expand to additional chains based on demand.
 
 ## Resources
 
-- [Whitepaper](https://app.universalassets.xyz/docs/universal-whitepaper.pdf)
+- [Whitepaper](https://app.universal.xyz/docs/universal-whitepaper.pdf)
 - [Proof of Reserves](https://www.universal.xyz/reserves)
 - [Universal EVM Audit](https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf)
 - [Universal Solana Audit](https://hacken.io/audits/universal/)

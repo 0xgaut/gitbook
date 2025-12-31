@@ -132,7 +132,7 @@ Developers can integrate Universal in two ways:
 
 ### How do I place a trade?
 
-Visit [app.universalassets.xyz](https://app.universalassets.xyz) and connect your wallet. Select the asset you want to trade, review the quote, and sign the transaction.
+Visit [app.universal.xyz](https://app.universal.xyz) and connect your wallet. Select the asset you want to trade, review the quote, and sign the transaction.
 
 [Detailed trading guide →](../trade/placing-a-trade.md)
 

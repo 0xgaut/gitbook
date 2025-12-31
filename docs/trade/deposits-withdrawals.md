@@ -26,7 +26,7 @@ This means you can trade assets from any blockchain using a single wallet on you
 
 #### 1. Connect Your Wallet
 
-Visit [app.universalassets.xyz](https://app.universalassets.xyz) and connect the wallet where you want to receive uAssets (e.g., a Base wallet).
+Visit [app.universal.xyz](https://app.universal.xyz) and connect the wallet where you want to receive uAssets (e.g., a Base wallet).
 
 #### 2. Complete KYC Verification
 

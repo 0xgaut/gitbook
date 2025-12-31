@@ -52,7 +52,7 @@ Cryptocurrency regulations vary by jurisdiction and may change. Ensure you compl
 
 ### Geographic Restrictions
 
-Universal services may not be available in all jurisdictions. Check [Terms of Service](https://app.universalassets.xyz/term-of-service) for restrictions.
+Universal services may not be available in all jurisdictions. Check [Terms of Service](https://app.universal.xyz/term-of-service) for restrictions.
 
 ## Operational Risks
 
@@ -81,7 +81,7 @@ If using bridged assets alongside uAssets, bridge vulnerabilities may pose addit
 
 Only use official Universal channels:
 
-- [app.universalassets.xyz](https://app.universalassets.xyz)
+- [app.universal.xyz](https://app.universal.xyz)
 - [universal.xyz](https://www.universal.xyz)
 - [@UniversalAsset_](https://twitter.com/UniversalAsset_) on Twitter
 - [discord.gg/universalassets](http://discord.gg/universalassets)
@@ -103,14 +103,14 @@ By using Universal Protocol, you acknowledge that:
 
 - You understand and accept the risks
 - You are responsible for your own trading decisions
-- You have read the [Terms of Service](https://app.universalassets.xyz/term-of-service)
-- You have read the [Disclaimer](https://app.universalassets.xyz/disclaimer)
+- You have read the [Terms of Service](https://app.universal.xyz/term-of-service)
+- You have read the [Disclaimer](https://app.universal.xyz/disclaimer)
 
 ## Additional Resources
 
-- [Full Disclaimer](https://app.universalassets.xyz/disclaimer)
-- [Terms of Service](https://app.universalassets.xyz/term-of-service)
-- [Whitepaper](https://app.universalassets.xyz/docs/universal-whitepaper.pdf)
+- [Full Disclaimer](https://app.universal.xyz/disclaimer)
+- [Terms of Service](https://app.universal.xyz/term-of-service)
+- [Whitepaper](https://app.universal.xyz/docs/universal-whitepaper.pdf)
 - [Security Audits](../introduction/what-is-universal.md#resources)
 
 ## Get Help

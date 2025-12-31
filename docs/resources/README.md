@@ -24,20 +24,20 @@ Join the Universal community to stay updated on protocol developments and get su
 
 ### Applications
 
-- **[Universal App](https://app.universalassets.xyz)** - Trade Universal assets
+- **[Universal App](https://app.universal.xyz)** - Trade Universal assets
 - **[Mint & Redeem](https://www.universal.xyz/mint-and-redeem)** - Direct minting/redemption portal
 - **[Proof of Reserves](https://www.universal.xyz/reserves)** - Verify reserve backing
 
 ### Documentation
 
-- **[Whitepaper](https://app.universalassets.xyz/docs/universal-whitepaper.pdf)** - Technical whitepaper
+- **[Whitepaper](https://app.universal.xyz/docs/universal-whitepaper.pdf)** - Technical whitepaper
 - **[EVM Audit](https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf)** - Smart contract audit
 - **[Solana Audit](https://hacken.io/audits/universal/)** - Solana program audit
 
 ### Legal
 
-- **[Disclaimer](https://app.universalassets.xyz/disclaimer)** - Legal disclaimer
-- **[Terms of Service](https://app.universalassets.xyz/term-of-service)** - Terms and conditions
+- **[Disclaimer](https://app.universal.xyz/disclaimer)** - Legal disclaimer
+- **[Terms of Service](https://app.universal.xyz/term-of-service)** - Terms and conditions
 
 ## Support Channels
 

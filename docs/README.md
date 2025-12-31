@@ -51,10 +51,10 @@ Integrate Universal into your application.
 
 | Resource | Link |
 |----------|------|
-| Trade uAssets | [app.universalassets.xyz](https://app.universalassets.xyz) |
+| Trade uAssets | [app.universal.xyz](https://app.universal.xyz) |
 | Mint & Redeem | [universal.xyz/mint-and-redeem](https://www.universal.xyz/mint-and-redeem) |
 | Proof of Reserves | [universal.xyz/reserves](https://www.universal.xyz/reserves) |
-| Whitepaper | [Download PDF](https://app.universalassets.xyz/docs/universal-whitepaper.pdf) |
+| Whitepaper | [Download PDF](https://app.universal.xyz/docs/universal-whitepaper.pdf) |
 | Security Audits | [EVM Audit](https://github.com/r0bert-ethack/audits/blob/main/Alongside%20-%20Universal%20Contracts%20report%20-%20Final.pdf) / [Solana Audit](https://hacken.io/audits/universal/) |
 
 ---

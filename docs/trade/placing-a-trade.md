@@ -14,7 +14,7 @@ Make sure you have:
 
 ### 1. Go to Universal
 
-Visit [app.universalassets.xyz](https://app.universalassets.xyz) in your browser.
+Visit [app.universal.xyz](https://app.universal.xyz) in your browser.
 
 ### 2. Connect Your Wallet
 
