@@ -106,7 +106,7 @@ Anyone can verify that Custodian holdings match circulating uAssets:
 Universal maintains full transparency around custody:
 
 - **Public verification**: zkProof system enables trustless verification
-- **On-chain tracking**: All mints and burns are publicly visible
+- **Onchain tracking**: All mints and burns are publicly visible
 - **Regular reporting**: Reserve updates published regularly
 
 ## Multi-Custodian Future

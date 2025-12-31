@@ -28,7 +28,7 @@ Universal uses a **wrapped asset protocol** similar to wBTC, USDT, and USDC, but
 - Merchants (permissioned actors) facilitate minting and redemption
 - Just-in-time liquidity optimizes capital efficiency
 
-### 3. Bringing Off-Chain Assets Onchain
+### 3. Bringing Offchain Assets Onchain
 
 - Universal enables non-EVM assets (like DOGE, XRP, BTC) to be wrapped and traded on any supported chain
 - This expands the DeFi ecosystem by making previously unavailable assets accessible in onchain markets
@@ -43,7 +43,7 @@ uAssets (e.g., uBTC, uSOL, uDOGE) are ERC-20/SPL tokens that represent 1:1-backe
 
 - uAssets are minted when a Merchant deposits the equivalent underlying collateral with a Custodian
 - Issuance is instant for small orders but may require additional verification for large requests
-- Issuance limits are determined by the Merchant's available off-chain collateral
+- Issuance limits are determined by the Merchant's available offchain collateral
 
 #### 2. Redeemable with Authorized Merchants
 
@@ -67,7 +67,7 @@ uAssets (e.g., uBTC, uSOL, uDOGE) are ERC-20/SPL tokens that represent 1:1-backe
 
 #### 1. Onchain Exchange with Deep Liquidity
 
-uAssets bring off-chain order book depth on-chain, enabling execution rivaling centralized exchanges (CEXs). A user on Base can trade uBTC/uSOL without relying on bridges.
+uAssets bring offchain order book depth onchain, enabling execution rivaling centralized exchanges (CEXs). A user on Base can trade uBTC/uSOL without relying on bridges.
 
 #### 2. Enhanced Lending Markets
 

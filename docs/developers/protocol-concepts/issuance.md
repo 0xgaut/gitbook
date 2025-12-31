@@ -125,11 +125,11 @@ contract UniversalToken {
 | **Liquidity** | Shared across chains | Fragmented per chain |
 | **Speed** | Instant | Depends on finality |
 | **Security** | Regulated custody | Smart contract risk |
-| **Verification** | zkProof reserves | On-chain balance |
+| **Verification** | zkProof reserves | Onchain balance |
 
 ## Monitoring Issuance
 
-### On-Chain Tracking
+### Onchain Tracking
 
 Track minting events on block explorers:
 

@@ -1,75 +1,166 @@
 # Placing a Trade
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. This guide walks you through placing your first trade on Universal.
+This guide walks you through your first trade on Universal—from connecting your wallet to seeing tokens in your account.
 
-## Prerequisites
+## Before You Start
 
-Lorem ipsum dolor sit amet:
+Make sure you have:
 
-- A Web3 wallet (MetaMask, Phantom, etc.)
-- USDC or uAssets to trade
-- Sufficient native tokens for gas fees
+- **A Web3 wallet** — MetaMask, Coinbase Wallet, Rainbow, Phantom, or any WalletConnect-compatible wallet
+- **Tokens to trade** — USDC, ETH, or any supported asset
+- **Gas funds** — A small amount of the native token (ETH, MATIC, SOL, etc.) for transaction fees
 
 ## Step-by-Step Guide
 
-### 1. Connect Your Wallet
+### 1. Go to Universal
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Visit [app.universalassets.xyz](https://app.universalassets.xyz) and connect your wallet.
+Visit [app.universalassets.xyz](https://app.universalassets.xyz) in your browser.
 
-### 2. Select Assets
+### 2. Connect Your Wallet
 
-Lorem ipsum dolor sit amet:
+Click **Connect Wallet** in the top right. Select your wallet provider and approve the connection.
 
-- Choose the asset you want to buy or sell
-- Select the chain you want to trade on
-- Enter the amount
+Universal supports:
+- MetaMask
+- Coinbase Wallet
+- Rainbow
+- Phantom (for Solana)
+- WalletConnect (200+ wallets)
 
-### 3. Review Quote
+### 3. Select Your Network
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Review:
+Choose the blockchain you want to trade on. Your options include:
+- Base
+- Polygon
+- Arbitrum
+- Solana
+- World
 
-- Exchange rate
-- Gas fees
-- Slippage tolerance
-- Total amount
+Make sure your wallet is connected to the same network.
 
-### 4. Approve Tokens (First Time Only)
+### 4. Choose Your Trade
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Approve the Permit2 contract to spend your tokens.
+**Select what you're selling** (top field)
+- Click the token selector
+- Choose from your wallet balances or search for an asset
+- Enter the amount you want to sell
 
-### 5. Sign and Submit
+**Select what you're buying** (bottom field)
+- Click the token selector
+- Browse 80+ available assets
+- Look for the **"U" badge** on uAssets
 
-Lorem ipsum dolor sit amet. Sign the order and submit it for execution.
+The app shows your quote instantly, including the exact amount you'll receive.
 
-### 6. Confirmation
+### 5. Review the Quote
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Your trade will be confirmed onchain within seconds.
+Before confirming, check:
+
+| Detail | What It Means |
+|--------|---------------|
+| **You Pay** | Amount leaving your wallet |
+| **You Receive** | Amount arriving in your wallet |
+| **Rate** | Exchange rate for this trade |
+| **Price Impact** | How your trade affects the price (usually minimal) |
+| **Network Fee** | Gas cost for the transaction |
+
+Quotes are valid for a limited time. If the price moves significantly, you'll get a fresh quote.
+
+### 6. Approve Tokens (First Time Only)
+
+If this is your first trade with a particular token on an EVM chain, you'll need to approve it:
+
+1. Click **Approve**
+2. Your wallet opens with an approval request
+3. Confirm the transaction
+4. Wait for the approval to process (usually a few seconds)
+
+This uses **Permit2**, a secure approval standard. You only do this once per token—future trades skip this step.
+
+### 7. Sign and Execute
+
+1. Click **Swap** (or **Trade**)
+2. Your wallet prompts you to sign
+3. Review the details and confirm
+4. The trade executes onchain
+
+### 8. Done!
+
+Your new tokens appear in your wallet within seconds. You can:
+- View the transaction on the block explorer (click the transaction link)
+- See your updated balances in the app
+- Trade again or explore other assets
+
+---
 
 ## Trading Tips
 
-Lorem ipsum dolor sit amet:
+**Start with a small trade**
+Get comfortable with the flow before trading larger amounts.
 
-- **Check slippage**: Lorem ipsum dolor sit amet
-- **Monitor gas fees**: Lorem ipsum dolor sit amet
-- **Start small**: Lorem ipsum dolor sit amet
-- **Verify addresses**: Lorem ipsum dolor sit amet
+**Keep gas funds handy**
+Always maintain a small balance of native tokens (ETH, MATIC, SOL) for transaction fees.
+
+**Check the rate before confirming**
+The quote shows exactly what you'll receive. If it looks off, refresh and try again.
+
+**Use the right network**
+Make sure your wallet is on the same chain you're trading on. The app will prompt you to switch if needed.
+
+---
+
+## Common Questions
+
+### Why do I need to approve?
+
+Token approvals let Universal's smart contracts move tokens on your behalf. Permit2 makes this safer and more efficient than traditional approvals.
+
+### How long does a trade take?
+
+Most trades settle in seconds. Exact timing depends on blockchain congestion.
+
+### What if the price changes?
+
+If the price moves beyond your slippage tolerance, the trade won't execute and you won't be charged (except for any gas used).
+
+### Can I cancel a trade?
+
+Once you sign and submit, the trade executes onchain and cannot be reversed. Always review before confirming.
+
+---
 
 ## Troubleshooting
 
-### Transaction Failed
+### "Transaction Failed"
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
+- **Insufficient gas**: Add more native tokens to cover fees
+- **Price moved**: The quote expired—try again with a fresh quote
+- **Network congestion**: Wait a moment and retry
 
-### Insufficient Balance
+### "Insufficient Balance"
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Make sure you have enough of the token you're selling, plus gas funds for the transaction.
 
-### Approval Issues
+### "Approval Stuck"
 
-Lorem ipsum dolor sit amet.
+If an approval transaction is pending:
+1. Wait—it may just be slow
+2. Check the transaction on a block explorer
+3. If stuck, you can speed it up or cancel through your wallet
+
+### Wallet Won't Connect
+
+- Refresh the page
+- Make sure your wallet extension is unlocked
+- Try a different browser or disable conflicting extensions
+- Clear your browser cache
+
+Still stuck? [Get help on Discord](http://discord.gg/universalassets)
+
+---
 
 ## Next Steps
 
-- [Learn about referrals](referrals.md)
-- [Understand risks](risks.md)
-- [Join Discord for support](http://discord.gg/universalassets)
+- [Earn rewards with referrals](referrals.md)
+- [Learn about points](points.md)
+- [Understand trading risks](risks.md)

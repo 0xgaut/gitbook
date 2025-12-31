@@ -34,7 +34,7 @@ The Universal Protocol utilizes a **zkProof-powered verification system** that e
 
 - Users can independently verify the proof by querying Universal's zkProof verification system
 - The verification process allows users to:
-  - **Confirm that our reported reserves match on-chain balances**
+  - **Confirm that our reported reserves match onchain balances**
   - **Ensure that Coinbase Custody holds the underlying collateral for uAssets**
   - **Authenticate that no sensitive data (e.g., API keys) has been exposed**
 
@@ -151,9 +151,9 @@ async function verifyReserves(asset: string) {
 }
 ```
 
-### On-Chain Supply
+### Onchain Supply
 
-Compare custodian reserves with on-chain circulating supply:
+Compare custodian reserves with onchain circulating supply:
 
 ```typescript
 // Check circulating supply
@@ -176,7 +176,7 @@ const isFullyBacked = reserves >= totalSupply;
 
 ⚠️ **Custodian risk**: Coinbase custody reliability  
 ⚠️ **Oracle timing**: Small delays between proof and reality  
-⚠️ **Smart contract risk**: Verify supply on-chain independently  
+⚠️ **Smart contract risk**: Verify supply onchain independently  
 
 [Read full risk disclosures →](../../trade/risks.md)
 

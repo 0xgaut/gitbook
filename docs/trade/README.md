@@ -16,6 +16,9 @@ Universal enables seamless trading of wrapped assets (uAssets) like uBTC, uSOL, 
     <td><strong><a href="placing-a-trade.md">Placing a Trade</a></strong><br/>Step-by-step guide to your first trade</td>
   </tr>
   <tr>
+    <td><strong><a href="deposits-withdrawals.md">Deposits & Withdrawals</a></strong><br/>Fund your wallet with native assets or withdraw to other chains</td>
+  </tr>
+  <tr>
     <td><strong><a href="referrals.md">Referral Program</a></strong><br/>Earn fees by referring traders to Universal</td>
   </tr>
   <tr>
@@ -54,7 +57,7 @@ Trade uAssets on:
 
 ### Deep Liquidity
 
-Access off-chain order book liquidity for better pricing and lower slippage than traditional DEXs.
+Access offchain order book liquidity for better pricing and lower slippage than traditional DEXs.
 
 ### Cross-Chain Trading
 

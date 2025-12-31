@@ -16,7 +16,7 @@ To redeem Universal tokens, the **Merchant** must call the **`burn`** function i
 
 When the **`burn`** function is executed:
 
-- The specified token amount is **deducted** from the Merchant's on-chain Universal token balance
+- The specified token amount is **deducted** from the Merchant's onchain Universal token balance
 - The **total supply** of Universal tokens is **reduced accordingly**
 
 #### 2. Collateral Release
@@ -158,7 +158,7 @@ contract UniversalToken {
 
 ## Monitoring Redemptions
 
-### On-Chain Tracking
+### Onchain Tracking
 
 Track burn events on block explorers:
 

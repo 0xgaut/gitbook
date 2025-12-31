@@ -12,6 +12,7 @@
 * [Trade Universal Assets](trade/README.md)
   * [How It Works](trade/how-it-works.md)
   * [Placing a Trade](trade/placing-a-trade.md)
+  * [Deposits & Withdrawals](trade/deposits-withdrawals.md)
   * [Referral Program](trade/referrals.md)
   * [Points System](trade/points.md)
   * [Risks & Disclaimers](trade/risks.md)

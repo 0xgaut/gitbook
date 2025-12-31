@@ -159,7 +159,7 @@ Additional chains will be added based on demand and technical feasibility.
 | **Capital Efficiency** | High (JIT) | Low (Locked) | Low (Pools) | High |
 | **Composability** | Full | Full | Full | None |
 | **Custody** | Regulated | Varies | Centralized | Centralized |
-| **Verification** | zkProofs | On-chain | Attestations | None |
+| **Verification** | zkProofs | Onchain | Attestations | None |
 
 ## Technical Specifications
 

@@ -1,66 +1,136 @@
 # How Trading Works
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will explain the trading mechanics of Universal assets.
+Universal lets you trade any token on your preferred blockchain—even if that token doesn't exist there natively. Here's how it works.
 
-## Trade Execution Flow
+## The Basics
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+When you trade on Universal, you're swapping between **uAssets**—wrapped versions of tokens like BTC, SOL, DOGE, and 80+ others. Each uAsset is backed 1:1 by the real asset held in regulated custody.
 
-### Step 1: Quote Request
+You'll recognize uAssets by the **"U" badge** on their icon in the app.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. User requests a quote for buying or selling a uAsset.
+## What Happens When You Trade
 
-### Step 2: Price Discovery
+### Step 1: Enter Your Trade
 
-Lorem ipsum dolor sit amet. Merchants provide competitive pricing based on off-chain order book liquidity.
+Choose the token you want to buy and the token you want to sell. Universal shows you a quote with the exact amount you'll receive.
 
-### Step 3: Order Signing
+### Step 2: Approve (First Time Only)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. User signs the order using EIP-712 or Solana transaction signing.
+If this is your first trade on an EVM chain, you'll approve Universal to access your tokens. This is a one-time setup using Permit2—after that, future trades only require a signature.
 
-### Step 4: Order Fulfillment
+### Step 3: Sign the Transaction
 
-Lorem ipsum dolor sit amet. Merchant executes the trade and mints/burns uAssets as needed.
+Review the details and sign. Your wallet will prompt you to confirm.
 
-### Step 5: Settlement
+### Step 4: Trade Executes
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Trade settles onchain and assets are transferred to user's wallet.
+Your trade settles onchain in seconds. The tokens appear in your wallet automatically.
 
-## Just-in-Time Liquidity
+That's it. No bridging, no complicated steps, no waiting.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+---
 
-### How JIT Works
+## Where Does Liquidity Come From?
 
-Lorem ipsum dolor sit amet:
+Universal connects you to **Merchants**—professional market makers who provide pricing and fulfill trades. When you buy a uAsset:
 
-- Liquidity is provided dynamically when needed
-- No pre-deposited liquidity pools required
-- Capital efficiency optimized for merchants
-- Better pricing for traders
+1. You send payment (like USDC)
+2. The Merchant mints fresh uAssets backed by real collateral
+3. You receive the uAssets in your wallet
 
-## Order Types
+When you sell, the reverse happens—your uAssets are burned, and you receive payment.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+This **just-in-time liquidity** model means:
+- No liquidity pools to drain
+- Consistent pricing regardless of trade size
+- Capital efficiency that translates to better rates
 
-### Market Orders
+---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Execute immediately at current market price.
+## Native vs. Non-Native Tokens
 
-### Limit Orders
+Universal intelligently routes your trade based on what you're swapping:
 
-Lorem ipsum dolor sit amet. Coming soon.
+**Native tokens** (like ETH on Ethereum or SOL on Solana)
+→ Routed through DEX aggregators for optimal pricing
 
-## Slippage Protection
+**Non-native tokens** (like BTC on Base or DOGE on Polygon)
+→ Handled by Universal's Merchant network
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+You don't need to think about this—the app handles routing automatically.
 
-## Gas Fees
+---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gas fees vary by blockchain and network congestion.
+## Pricing & Fees
+
+Universal provides transparent, competitive pricing:
+
+- **Spread**: Small difference between buy and sell prices (how Merchants earn)
+- **Protocol fee**: Minimal fee supporting the Universal network
+- **Gas**: Standard blockchain transaction fees
+
+All fees are included in the quote you see before trading.
+
+---
+
+<details>
+<summary><strong>Dive Deeper: How Trades Execute Behind the Scenes</strong></summary>
+
+### Two Execution Methods
+
+Universal uses two systems to execute trades, chosen automatically based on context:
+
+**Universal API (Request-for-Quote)**
+
+Most trades use our RFQ system, similar to UniswapX:
+1. You request a quote
+2. Merchants compete to offer the best price
+3. You sign an EIP-712 message (gasless signature)
+4. The winning Merchant fulfills your order onchain
+
+This approach guarantees the exact price you were quoted.
+
+**Uniswap V4 Hook**
+
+For apps that need atomic, single-transaction swaps:
+1. Trade executes directly through a Uniswap V4 pool
+2. Merchants provide just-in-time liquidity via the Hook
+3. Settlement happens in one transaction
+
+The V4 Hook requires an additional signature but enables instant composability with other DeFi protocols.
+
+### Why Two Systems?
+
+- **API**: Best for wallets and apps wanting guaranteed quotes and gasless UX
+- **V4 Hook**: Best for DeFi integrations needing atomic execution
+
+As a trader, you don't need to choose—the app selects the optimal path.
+
+</details>
+
+---
+
+## What Makes This Different?
+
+| Traditional DEX | Universal |
+|----------------|-----------|
+| Limited to native chain tokens | Trade 80+ tokens on any chain |
+| Liquidity depends on pool depth | Consistent liquidity from Merchants |
+| Price impact on large trades | Stable pricing at any size |
+| Need bridges for cross-chain | No bridges required |
+
+---
+
+## Security & Backing
+
+Every uAsset is 1:1 backed by real assets in regulated custody (Coinbase). You can verify reserves anytime at [universal.xyz/reserves](https://www.universal.xyz/reserves).
+
+[Learn more about Proof of Reserves →](../developers/protocol-concepts/reserves.md)
+
+---
 
 ## Next Steps
 
 - [Place your first trade](placing-a-trade.md)
-- [Learn about risks](risks.md)
-- [Explore the protocol](../developers/protocol.md)
+- [Understand the risks](risks.md)
+- [Get support](../resources/support.md)

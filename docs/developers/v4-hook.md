@@ -1,8 +1,65 @@
 # Uniswap V4 Hook
 
-## Overview
+**The most capital-efficient way to enable trading of wrapped assets on your app.**
 
-Universal is a wrapped asset protocol designed to enable trading for any token, on any chain. This document describes Universal's Just-In-Time (JIT) liquidity solution built on Uniswap V4.
+## Introduction
+
+Universal is a wrapped asset protocol designed to bring any token to any chain. While our [Universal API](api.md) has successfully powered millions in volume via a Request-for-Quote (RFQ) model—perfect for wallets and apps requiring guaranteed pricing—high-frequency trading and onchain composability demand zero latency.
+
+The **Universal v4 Hook** is the next frontier: a Uniswap V4 integration that enables synchronous, Just-In-Time (JIT) liquidity for seamless spot trading, directly through Uniswap.
+
+---
+
+## Why Integrate the V4 Hook?
+
+### Zero Custom Integration
+The Hook exposes a standard Uniswap V4 pool interface. If you already support Uniswap V4, you can route to Universal pools with no additional code.
+
+### Atomic Execution
+Single-transaction swaps. No offchain quote requests, no signatures, no waiting for settlement—just a standard swap call.
+
+### Always-On Liquidity
+Deep liquidity is always available within oracle-defined bands. No need to check if a pool has sufficient TVL or handle low-liquidity edge cases.
+
+### Instant Composability
+Works out-of-the-box with your existing infrastructure:
+- DEX aggregator routing
+- Multi-hop swaps
+- Smart contract integrations
+
+---
+
+## Supported Assets & Chains
+
+| Assets | Chains |
+|--------|--------|
+| uTAO, uXRP, uZEC, uDOGE, uHYPE | Unichain |
+
+*More assets and chains rolling out soon.*
+
+---
+
+## RFQ vs V4 Hook: When to Use What
+
+| Feature | Universal API (RFQ) | Universal v4 Hook |
+|---------|---------------------|-------------------|
+| **Model** | Asynchronous Request-for-Quote | Synchronous / Atomic Swap |
+| **Liquidity** | Merchant-quoted on demand | JIT Oracle-based Liquidity Bands |
+| **Execution** | Multi-step (Sign → Wait → Settle) | Single Transaction |
+| **Best For** | Platform-wide integrations, wallets | DEX Aggregators, arbitrageurs, trading apps |
+
+---
+
+## How It Works
+
+The v4 Hook eliminates the need for pre-funded LP positions. Instead of idle capital sitting in a pool:
+
+1. **Oracle-Driven Bands:** An authorized oracle continuously updates liquidity bands (price ticks + max volume) for each trading direction
+2. **JIT Execution:** When a user swaps, the Hook intercepts the transaction via `beforeSwap`
+3. **On-Demand Settlement:** The Hook dynamically mints uAssets or settles USDC from the merchant's balance—all within the same transaction
+4. **Virtual Pricing:** A virtual price state tracks execution within the bands to prevent sandwich attacks
+
+---
 
 ## Background: Traditional RFQ System
 
@@ -322,3 +379,25 @@ Potential improvements to consider:
 1. **Native swap logic execution:** use Uniswap's native swap mechanic by adding/removing liquidity JIT. As this comes with it's unique set of challenges, like respecting tick spacing while ensuring liquidity is single sided, sqrtPrice jumping when there's no third party liquidity and oracle liquidity is depleted or price is stale, etc.
 2. **Multi-Merchant Support**: Allow multiple liquidity providers
 3. **Fee Mechanisms**: Introduce configurable fees for the protocol
+
+---
+
+## Integration
+
+Integrating the v4 Hook is as simple as interacting with any standard Uniswap V4 pool.
+
+**For Aggregators & Traders:**
+You do not need custom ABI methods. Simply route trades through the pool ID associated with the Universal Hook—the smart contract handles all the complexity of JIT minting and settlement.
+
+**Contract Address (Unichain):**
+```
+0xcdfCaB084b2d29025772141d3BF473bd9673aaA8
+```
+
+---
+
+## Get Started
+
+- **Integration Support:** [dev@universal.xyz](mailto:dev@universal.xyz)
+- **Smart Contracts:** [Contract Addresses](smart-contracts.md)
+- **API Documentation:** [Universal API](api.md)

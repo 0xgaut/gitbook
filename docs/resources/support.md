@@ -14,15 +14,15 @@ Universal Protocol is a wrapped asset protocol that enables trading of any token
 
 Universal is designed for:
 
-- **On-chain traders and investors** who want exposure to their favorite tokens on their preferred chain. For example, if you hold assets on Base but want exposure to Solana, you can swap for uSOL within Base without using a cross-chain bridge or centralized exchange.
+- **Onchain traders and investors** who want exposure to their favorite tokens on their preferred chain. For example, if you hold assets on Base but want exposure to Solana, you can swap for uSOL within Base without using a cross-chain bridge or centralized exchange.
 - **Developers and dApp builders** who want to support a wider array of assets. A DEX on Base, for example, can enable trading of SOL, DOGE, and other assets that were previously unavailable.
 
 #### Why is Universal needed?
 
 Many cryptoassets (like BTC, DOGE, and XRP) lack smart contract functionality, preventing them from being available in DeFi spot markets. Universal solves this by:
 
-- Bringing non-smart contract assets on-chain so they can be traded like ERC-20 or SPL tokens
-- Enhancing liquidity conditions by leveraging off-chain order book depth, improving price execution
+- Bringing non-smart contract assets onchain so they can be traded like ERC-20 or SPL tokens
+- Enhancing liquidity conditions by leveraging offchain order book depth, improving price execution
 - Eliminating dependency on bridges and centralized exchanges to access cross-chain liquidity
 
 #### Is Universal a bridge like LayerZero?
@@ -35,7 +35,7 @@ No, Universal is different from traditional bridges:
 
 #### What is a wrapped asset?
 
-A wrapped asset is an on-chain token that represents an off-chain or cross-chain asset.
+A wrapped asset is an onchain token that represents an offchain or cross-chain asset.
 
 - A custodian holds the underlying asset and issues a 1:1-backed token that can be minted or redeemed
 - Universal's wrapped assets (uAssets) are maintained with Coinbase Prime and secured by the Universal Protocol's open-source smart contracts
@@ -87,7 +87,7 @@ Yes, uAssets function like any ERC-20, SPL, or smart contract token, allowing th
 
 Merchants fulfill quotes using various exchange types, including:
 
-- Intent-based exchanges like Uniswap X or CoWSwap, where orders are filled based on off-chain intents
+- Intent-based exchanges like Uniswap X or CoWSwap, where orders are filled based on offchain intents
 - Traditional liquidity sources where market makers dynamically provide liquidity
 
 #### Do uAssets require secondary liquidity?
@@ -98,7 +98,7 @@ Merchants fulfill quotes using various exchange types, including:
 #### How does Universal maintain transparency and security?
 
 - uAssets are fully backed 1:1 by reserves held in regulated custodians
-- All minting and redemption operations are transparent and verifiable on-chain
+- All minting and redemption operations are transparent and verifiable onchain
 - Merchants and custodians are permissioned entities, ensuring responsible management of assets
 - Reserves can be audited at anytime using [zkProof verification](https://www.universal.xyz/reserves)
 
@@ -157,14 +157,14 @@ Common reasons for failed transactions:
 
 ### How long does a trade take?
 
-Trades typically settle within seconds once the transaction is confirmed on-chain. Confirmation time depends on the blockchain:
+Trades typically settle within seconds once the transaction is confirmed onchain. Confirmation time depends on the blockchain:
 
 - **Base, Arbitrum, Polygon**: 1-30 seconds
 - **Solana**: 1-5 seconds
 
 ### Can I cancel a trade?
 
-Once a signed order is submitted and confirmed on-chain, it cannot be cancelled. Always review quotes carefully before signing.
+Once a signed order is submitted and confirmed onchain, it cannot be cancelled. Always review quotes carefully before signing.
 
 ## Developer Support
 

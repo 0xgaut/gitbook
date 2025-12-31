@@ -18,7 +18,7 @@ uAssets are wrapped, cross-chain compatible assets (e.g., uBTC, uSOL) issued by 
 
 * uAssets are minted when a Merchant deposits the equivalent underlying collateral with a Custodian.
 * The issuance process is instant for small orders but may require additional verification for large requests.
-* Issuance limits are determined by the Merchant’s available off-chain collateral.
+* Issuance limits are determined by the Merchant’s available offchain collateral.
 
 #### 2. Redeemable with Authorized Merchants
 
@@ -42,7 +42,7 @@ uAssets are wrapped, cross-chain compatible assets (e.g., uBTC, uSOL) issued by 
 
 #### 1. Onchain Exchange with Deep Liquidity
 
-* uAssets bring off-chain order book depth on-chain, enabling execution rivaling centralized exchanges (CEXs).
+* uAssets bring offchain order book depth onchain, enabling execution rivaling centralized exchanges (CEXs).
 * Example: A user on Base can trade uBTC/uSOL without relying on bridges.
 
 #### 2. Enhanced Lending Markets

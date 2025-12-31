@@ -131,7 +131,7 @@ While Merchants are permissioned, the system remains transparent:
 
 ## Technical Details
 
-### On-Chain Operations
+### Onchain Operations
 
 Merchants interact with Universal smart contracts to:
 
