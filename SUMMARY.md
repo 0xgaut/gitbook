@@ -28,7 +28,7 @@
   * [Orders API](developers/integrate-the-issuance-and-redemption-universal-api/orders-api.md)
   * [Error Handling](developers/integrate-the-issuance-and-redemption-universal-api/error-handling.md)
   * [Examples](developers/integrate-the-issuance-and-redemption-universal-api/examples.md)
-* [Contract Addresses](developers/contract-addresses.md)
+* [Smart Contracts](developers/contracts.md)
 * [Partnerships](developers/partnerships.md)
 * [uAsset Logos](developers/uasset-logos.md)
 
